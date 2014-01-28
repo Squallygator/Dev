@@ -1,0 +1,63 @@
+﻿@model MvcSandBox.Models.SimpleSearchHeaderModel
+@{
+    ViewBag.Title = "Default Index";   
+}
+<script src="~/Scripts/Common/Events.js"></script>
+<script src="~/Scripts/SimpleSearch/SimpleSearch.js"></script>
+<script src="~/Scripts/SimpleSearch/SimpleSearch.Nom.js"></script>
+<style>
+    select, input {
+        height: 22px;
+        line-height: 1em;
+        padding: 1px;
+    }
+    .SimpleSearch, .left, .center, .right {
+        display: block;
+        width: 150px;
+        height: 20px;
+    }
+
+    .SimpleSearch {
+        width: 455px;
+        margin: 2px;
+        padding: 0;
+    }
+
+    .left, .center {
+        float: left;
+    }
+
+    .left {
+        text-align: left;
+    }
+
+    .center {
+        width: 100px;
+    }
+
+    .right {
+        float: right;
+        text-align: right;
+    }
+</style>
+<div class="SimpleSearch">
+    <div class="left">
+        <select id="simpleSearchSelector">
+            <option selected="selected" value="">@Model.LibelleSeleteurRecherche</option>
+            @foreach (var item in Model.Recherches)
+            {
+                <option value="@(item.Code)" data-clientinitfunction="@(item.InitFunction)">@(item.Libelle)</option>
+            }
+        </select>
+    </div>
+    <div class="center" id="simpleSearchContent">
+    </div>
+    <div class="right">
+        <input type="button" id="simpleSearchButton" value="@(Model.LibelleBoutonRecherche)"/>
+    </div>
+</div>
+<script type="text/javascript">
+    (function ($) {
+        $.SimpleSearch.Init();
+    })(jQuery);
+</script>
