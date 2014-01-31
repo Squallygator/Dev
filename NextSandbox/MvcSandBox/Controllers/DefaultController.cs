@@ -39,5 +39,10 @@ namespace MvcSandBox.Controllers
                 };
             return View(model);
         }
+        public ActionResult Tests()
+        {
+            return View();
+        }
+
     }
 }

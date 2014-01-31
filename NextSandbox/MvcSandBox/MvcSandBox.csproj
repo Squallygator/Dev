@@ -110,6 +110,11 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Common\Events.js" />
+    <Content Include="Scripts\Jasmine\boot.js" />
+    <Content Include="Scripts\Jasmine\jasmine-html.js" />
+    <Content Include="Scripts\Jasmine\jasmine.css" />
+    <Content Include="Scripts\Jasmine\jasmine.js" />
+    <Content Include="Scripts\Jasmine\json2.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -120,6 +125,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\SimpleSearch\SimpleSearch.js" />
     <Content Include="Scripts\SimpleSearch\SimpleSearch.Nom.js" />
+    <Content Include="Scripts\Specs\jQuery_Das_Data_Specs.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +145,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\Tests.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
