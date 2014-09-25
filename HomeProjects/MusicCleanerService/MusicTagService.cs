@@ -63,7 +63,7 @@ namespace MusicCleanerService
             foreach (var key in recognizedPatternWords.Keys)
             {
                 if (result.Contains(key))
-                    result.Replace(key, recognizedPatternWords[key](tag));
+                    result = result.Replace(key, recognizedPatternWords[key](tag));
             }
             return result;
         }
