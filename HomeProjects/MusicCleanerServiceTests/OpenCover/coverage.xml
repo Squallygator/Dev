@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Summary numSequencePoints="12" visitedSequencePoints="8" numBranchPoints="7" visitedBranchPoints="4" sequenceCoverage="66.67" branchCoverage="57.14" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" />
+  <Summary numSequencePoints="12" visitedSequencePoints="10" numBranchPoints="7" visitedBranchPoints="6" sequenceCoverage="83.33" branchCoverage="85.71" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" />
   <Modules>
     <Module skippedDueTo="Filter" hash="E9-A8-6A-CC-31-FF-25-91-E6-86-F2-D5-72-EE-77-7D-AB-36-F0-0B">
       <FullName>C:\Windows\Microsoft.Net\assembly\GAC_32\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll</FullName>
@@ -78,21 +78,21 @@
       <Classes />
     </Module>
     <Module skippedDueTo="MissingPdb" hash="33-E1-CA-24-52-5A-B7-C7-C4-AF-91-2C-A9-4A-C0-37-67-0D-5B-FE">
-      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\6492_635472792462744000\Tests_5705112\assembly\dl3\48e9f9e3\506fe2a3_f6d8cf01\nunit.core.dll</FullName>
+      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\3444_635472812966412000\Tests_1410483\assembly\dl3\f4e743f9\506fe2a3_f6d8cf01\nunit.core.dll</FullName>
       <ModuleName>nunit.core</ModuleName>
       <Classes />
     </Module>
     <Module skippedDueTo="MissingPdb" hash="D3-A4-4D-85-55-F7-CE-EF-A5-90-AA-EF-58-E0-9F-B6-CC-27-99-53">
-      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\6492_635472792462744000\Tests_5705112\assembly\dl3\bebfc30f\10eaf2a3_f6d8cf01\nunit.core.interfaces.dll</FullName>
+      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\3444_635472812966412000\Tests_1410483\assembly\dl3\1e289f51\10eaf2a3_f6d8cf01\nunit.core.interfaces.dll</FullName>
       <ModuleName>nunit.core.interfaces</ModuleName>
       <Classes />
     </Module>
-    <Module hash="C0-E2-54-81-F7-65-2E-42-C1-97-54-1E-A5-FA-D4-33-30-32-4A-0E">
+    <Module hash="78-7A-C7-52-94-C5-3F-43-48-3A-32-55-61-3A-7D-71-45-9A-59-BA">
       <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="2" visitedBranchPoints="2" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" />
-      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\6492_635472792462744000\Tests_5705112\assembly\dl3\516a2c81\70ea7462_fbd8cf01\MusicCleanerServiceTests.dll</FullName>
+      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\3444_635472812966412000\Tests_1410483\assembly\dl3\2410d08f\a076bd26_00d9cf01\MusicCleanerServiceTests.dll</FullName>
       <ModuleName>MusicCleanerServiceTests</ModuleName>
       <Files>
-        <File uid="1" fullPath="d:\Dev\MusicCleanerServiceTests\MusicTagServiceTest.cs" />
+        <File uid="1" fullPath="c:\Users\Pascal\Documents\GitHub\Dev\HomeProjects\MusicCleanerServiceTests\MusicTagServiceTest.cs" />
       </Files>
       <Classes>
         <Class>
@@ -110,10 +110,10 @@
               <Name>System.Void MusicCleanerServiceTests.MusicTagServiceTest::TestThatExtractPathFromTagThrowsArgumentNullException(System.String,System.String)</Name>
               <FileRef uid="1" />
               <SequencePoints>
-                <SequencePoint vc="4" uspid="1" ordinal="0" offset="6" sl="29" sc="118" el="29" ec="119" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="4" uspid="2" ordinal="1" offset="7" sl="30" sc="4" el="30" ec="36" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="4" uspid="3" ordinal="2" offset="18" sl="31" sc="4" el="31" ec="81" bec="0" bev="0" fileid="1" />
-                <SequencePoint vc="4" uspid="4" ordinal="3" offset="36" sl="32" sc="3" el="32" ec="4" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="1" ordinal="0" offset="20" sl="29" sc="118" el="29" ec="119" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="2" ordinal="1" offset="21" sl="30" sc="4" el="30" ec="36" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="3" ordinal="2" offset="32" sl="31" sc="4" el="31" ec="105" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="4" ordinal="3" offset="50" sl="32" sc="3" el="32" ec="4" bec="0" bev="0" fileid="1" />
               </SequencePoints>
               <BranchPoints />
               <MethodPoint vc="4" uspid="5" ordinal="0" offset="0" />
@@ -146,17 +146,17 @@
               <Name>System.Void MusicCleanerServiceTests.MusicTagServiceTest/&lt;&gt;c__DisplayClass1::&lt;TestThatExtractPathFromTagThrowsArgumentNullException&gt;b__0()</Name>
               <FileRef uid="1" />
               <SequencePoints>
-                <SequencePoint vc="4" uspid="8" ordinal="0" offset="0" sl="31" sc="45" el="31" ec="79" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="8" ordinal="0" offset="0" sl="31" sc="45" el="31" ec="103" bec="0" bev="0" fileid="1" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint xsi:type="SequencePoint" vc="4" uspid="8" ordinal="0" offset="0" sl="31" sc="45" el="31" ec="79" bec="0" bev="0" fileid="1" />
+              <MethodPoint xsi:type="SequencePoint" vc="4" uspid="8" ordinal="0" offset="0" sl="31" sc="45" el="31" ec="103" bec="0" bev="0" fileid="1" />
             </Method>
           </Methods>
         </Class>
       </Classes>
     </Module>
     <Module skippedDueTo="MissingPdb" hash="42-83-FE-A6-9F-01-8E-2C-E8-41-E9-25-3E-1E-0D-99-81-76-6B-C9">
-      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\6492_635472792462744000\Tests_5705112\assembly\dl3\4f521c73\d053279b_f6d8cf01\nunit.framework.dll</FullName>
+      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\3444_635472812966412000\Tests_1410483\assembly\dl3\a16be62f\d053279b_f6d8cf01\nunit.framework.dll</FullName>
       <ModuleName>nunit.framework</ModuleName>
       <Classes />
     </Module>
@@ -166,8 +166,8 @@
       <Classes />
     </Module>
     <Module hash="22-AD-61-AB-48-3C-EE-89-F4-B9-96-8D-22-0D-4D-F0-7F-37-F2-D1">
-      <Summary numSequencePoints="7" visitedSequencePoints="3" numBranchPoints="5" visitedBranchPoints="2" sequenceCoverage="42.86" branchCoverage="40" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" />
-      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\6492_635472792462744000\Tests_5705112\assembly\dl3\ff70f48c\d0d90c62_fbd8cf01\MusicCleanerService.dll</FullName>
+      <Summary numSequencePoints="7" visitedSequencePoints="5" numBranchPoints="5" visitedBranchPoints="4" sequenceCoverage="71.43" branchCoverage="80" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" />
+      <FullName>C:\Users\Pascal\AppData\Local\Temp\nunit20\ShadowCopyCache\3444_635472812966412000\Tests_1410483\assembly\dl3\3b9cdea4\d0d90c62_fbd8cf01\MusicCleanerService.dll</FullName>
       <ModuleName>MusicCleanerService</ModuleName>
       <Files>
         <File uid="5" fullPath="d:\Dev\MusicCleanerService\MusicTagService.cs" />
@@ -179,27 +179,27 @@
           <Methods />
         </Class>
         <Class>
-          <Summary numSequencePoints="7" visitedSequencePoints="3" numBranchPoints="5" visitedBranchPoints="2" sequenceCoverage="42.86" branchCoverage="40" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" />
+          <Summary numSequencePoints="7" visitedSequencePoints="5" numBranchPoints="5" visitedBranchPoints="4" sequenceCoverage="71.43" branchCoverage="80" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" />
           <FullName>MusicCleanerService.MusicTagService</FullName>
           <Methods>
-            <Method visited="true" cyclomaticComplexity="3" sequenceCoverage="42.86" branchCoverage="40" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
-              <Summary numSequencePoints="7" visitedSequencePoints="3" numBranchPoints="5" visitedBranchPoints="2" sequenceCoverage="42.86" branchCoverage="40" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" />
+            <Method visited="true" cyclomaticComplexity="3" sequenceCoverage="71.43" branchCoverage="80" isConstructor="false" isStatic="false" isGetter="false" isSetter="false">
+              <Summary numSequencePoints="7" visitedSequencePoints="5" numBranchPoints="5" visitedBranchPoints="4" sequenceCoverage="71.43" branchCoverage="80" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" />
               <MetadataToken>100663297</MetadataToken>
               <Name>System.String MusicCleanerService.MusicTagService::ExtractPathFromTag(System.String,System.String)</Name>
               <FileRef uid="5" />
               <SequencePoints>
                 <SequencePoint vc="4" uspid="9" ordinal="0" offset="0" sl="20" sc="85" el="20" ec="86" bec="0" bev="0" fileid="5" />
-                <SequencePoint vc="4" uspid="10" ordinal="1" offset="1" sl="21" sc="4" el="21" ec="39" bec="2" bev="1" fileid="5" />
-                <SequencePoint vc="4" uspid="11" ordinal="2" offset="14" sl="22" sc="5" el="22" ec="49" bec="0" bev="0" fileid="5" />
-                <SequencePoint vc="0" uspid="12" ordinal="3" offset="25" sl="23" sc="4" el="23" ec="55" bec="2" bev="0" fileid="5" />
-                <SequencePoint vc="0" uspid="13" ordinal="4" offset="38" sl="24" sc="5" el="24" ec="65" bec="0" bev="0" fileid="5" />
+                <SequencePoint vc="4" uspid="10" ordinal="1" offset="1" sl="21" sc="4" el="21" ec="39" bec="2" bev="2" fileid="5" />
+                <SequencePoint vc="2" uspid="11" ordinal="2" offset="14" sl="22" sc="5" el="22" ec="49" bec="0" bev="0" fileid="5" />
+                <SequencePoint vc="2" uspid="12" ordinal="3" offset="25" sl="23" sc="4" el="23" ec="55" bec="2" bev="1" fileid="5" />
+                <SequencePoint vc="2" uspid="13" ordinal="4" offset="38" sl="24" sc="5" el="24" ec="65" bec="0" bev="0" fileid="5" />
                 <SequencePoint vc="0" uspid="14" ordinal="5" offset="49" sl="38" sc="4" el="38" ec="24" bec="0" bev="0" fileid="5" />
                 <SequencePoint vc="0" uspid="15" ordinal="6" offset="57" sl="39" sc="3" el="39" ec="4" bec="0" bev="0" fileid="5" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="4" uspid="16" ordinal="0" offset="12" path="0" offsetchain="" offsetend="14" />
-                <BranchPoint vc="0" uspid="17" ordinal="1" offset="12" path="1" offsetchain="" offsetend="25" />
-                <BranchPoint vc="0" uspid="18" ordinal="2" offset="36" path="0" offsetchain="" offsetend="38" />
+                <BranchPoint vc="2" uspid="16" ordinal="0" offset="12" path="0" offsetchain="" offsetend="14" />
+                <BranchPoint vc="2" uspid="17" ordinal="1" offset="12" path="1" offsetchain="" offsetend="25" />
+                <BranchPoint vc="2" uspid="18" ordinal="2" offset="36" path="0" offsetchain="" offsetend="38" />
                 <BranchPoint vc="0" uspid="19" ordinal="3" offset="36" path="1" offsetchain="" offsetend="49" />
               </BranchPoints>
               <MethodPoint xsi:type="SequencePoint" vc="4" uspid="9" ordinal="0" offset="0" sl="20" sc="85" el="20" ec="86" bec="0" bev="0" fileid="5" />
