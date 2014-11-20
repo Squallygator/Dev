@@ -41,8 +41,8 @@ public class MusicIndexer
 		var fileTag = TagLib.File.Create(filePath);
 		var musicFile = MusiqueFileFactory.Create(filePath, fileTag);
 		fileCollection = database.GetCollection<MusiqueFile>("files");
-		var files = fileCollection.Find(Query.EQ("FilePath", musicFile.FilePath));
-		if (!files.Any())
+		var foundFile = fileCollection.FindOne(Query<MusiqueFile>.EQ(_ => _.FilePath, musicFile.FilePath));
+		if (foundFile == null)
 			fileCollection.Insert(musicFile);
 	}
 }
