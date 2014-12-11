@@ -110,6 +110,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Common\Events.js" />
+    <Content Include="Scripts\DasAjaxReload.js" />
     <Content Include="Scripts\Jasmine\boot.js" />
     <Content Include="Scripts\Jasmine\jasmine-html.js" />
     <Content Include="Scripts\Jasmine\jasmine.css" />
