@@ -7,10 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-using System.IO;
 using System.Linq;
-using TagLib;
-using TagLib.NonContainer;
 
 namespace MusicCleaner
 {
@@ -20,12 +17,17 @@ namespace MusicCleaner
 		{
 			Console.WriteLine("Hello World!");
 			
-			var text = args.ElementAtOrDefault(0);
-            var service = new MusicCleanerService.MusicTagService(@"{AlbumArtist}\{Year} {Album}\{Track} {Title}.mp3");
-            var result = service.ExtractPathFromTag(text, @"d:\musique");
-			Console.WriteLine(text +" -> " + result);
-			Console.Write("Press any key to continue . . . ");
+			var text = @"D:\Musique\Radio Francais";// args.ElementAtOrDefault(0);
+//            var service = new MusicCleanerService.MusicTagService(@"{AlbumArtist}\{Year} {Album}\{Track} {Title}.mp3");
+//            var result = service.ExtractPathFromTag(text, @"d:\musique");
+//			Console.WriteLine(text +" -> " + result);
+//			Console.Write("Press any key to continue . . . ");
+//			Console.ReadKey(true);
+			
+			var mi = new MusicIndexer("mongodb://localhost");
+			mi.IndexBy(text, new DirectoryFileProvider());
 			Console.ReadKey(true);
+			
 		}
         //		private static void RecusiveFolderMove(string source, string destinationPath)
         //		{

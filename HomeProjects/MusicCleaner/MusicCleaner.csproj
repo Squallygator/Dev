@@ -24,8 +24,8 @@
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <StartAction>Project</StartAction>
-    <StartArguments>"D:\Musique\_Elliot&amp;Anatole_\Black M - Sur Ma Route.mp3"</StartArguments>
-    <StartWorkingDirectory>D:\Musique\_Elliot&amp;Anatole_</StartWorkingDirectory>
+    <StartArguments>"D:\Musique\"</StartArguments>
+    <StartWorkingDirectory>D:\Musique\</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>bin\Release\</OutputPath>

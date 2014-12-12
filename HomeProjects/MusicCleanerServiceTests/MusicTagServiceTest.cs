@@ -40,7 +40,7 @@ namespace MusicCleanerServiceTests
             var f = File.Create(filepath);
             Tag tag = f.Tag;
             var result = sut.ExtractPathFromTag(tag, pattern, destinationDirectoryPath);
-			Assert.True(result.StartsWith(destinationDirectoryPath));
+			Assert.True(result.StartsWith(destinationDirectoryPath, StringComparison.CurrentCulture));
 		}
 	}
 }
