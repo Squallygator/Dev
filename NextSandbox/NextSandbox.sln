@@ -1,18 +1,32 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSandBox", "MvcSandBox\MvcSandBox.csproj", "{EFFEC2EC-7D41-4CFF-83DA-8BDBE45FCD47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DasJS", "DasJS\DasJS.csproj", "{2B3E4C3E-B9A2-451E-AF03-252142DEF298}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{542F742B-E6BF-4378-8690-39038BF398A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		PackNuget|Any CPU = PackNuget|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EFFEC2EC-7D41-4CFF-83DA-8BDBE45FCD47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFFEC2EC-7D41-4CFF-83DA-8BDBE45FCD47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFFEC2EC-7D41-4CFF-83DA-8BDBE45FCD47}.PackNuget|Any CPU.ActiveCfg = PackNuget|Any CPU
 		{EFFEC2EC-7D41-4CFF-83DA-8BDBE45FCD47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFFEC2EC-7D41-4CFF-83DA-8BDBE45FCD47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.PackNuget|Any CPU.ActiveCfg = PackNuget|Any CPU
+		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.PackNuget|Any CPU.Build.0 = PackNuget|Any CPU
+		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

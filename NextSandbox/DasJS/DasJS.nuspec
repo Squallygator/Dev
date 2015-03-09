@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+	<metadata>
+		<id>DasJS</id>
+		<version>1.0.0-alpha</version>
+		<title>Das JS Repository</title>
+		<authors>menardaisp</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>My package description.</description>
+		<releaseNotes>First SHOT</releaseNotes>
+		<language>fr-FR</language>
+		<tags>javascript;jquery</tags>
+		<dependencies>
+			<dependency id="jQuery" version="2.1.3" />
+		</dependencies>
+	</metadata>
+	<files>
+	<file src="scripts\DAS\**\*.js" target="content/scripts/DAS" />
+  </files>
+</package>
