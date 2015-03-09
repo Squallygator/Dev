@@ -1,4 +1,7 @@
-﻿/// <reference path="~/Scripts/jquery-2.1.1.js" />
+﻿///#source 1 1 /Scripts/DAS/jquery.dasSelectListItem.js
+
+///#source 1 1 /Scripts/DAS/DASCommon.js
+/// <reference path="~/Scripts/jquery-2.1.1.js" />
 
 // -------------------------------------------------------------------------------------
 // String Prototypes

@@ -77,9 +77,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Nuget\NuGet.exe" />
+    <Content Include="Scripts\DAS\DAS-All.js">
+      <DependentUpon>DAS-All.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="Scripts\DAS\DAS-All.min.js">
+      <DependentUpon>DAS-All.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\DAS\DASCommon.js" />
     <Content Include="DasJS.nuspec" />
+    <Content Include="Scripts\DAS\DASCommon.min.js.map">
+      <DependentUpon>DASCommon.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\DAS\jquery.dasSelectListItem.js" />
+    <Content Include="Scripts\DAS\DAS-All.js.bundle" />
+    <Content Include="Scripts\DAS\DAS-All.min.js.map">
+      <DependentUpon>DAS-All.min.js</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\DAS\DASCommon.min.js">
+      <DependentUpon>DASCommon.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
@@ -126,10 +144,11 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition=" '$(Configuration)' == 'PackNuget' ">
+    <PreBuildEvent>del DasJS.*.nupkg</PreBuildEvent>
     <PostBuildEvent>
-      "C:\Program Files (x86)\NuGet\nuget.exe" pack ..\DasJS.nuspec
-      "C:\Program Files (x86)\NuGet\nuget.exe" push -source \\next-btfs\Packages\ DasJS.*.nupkg
-  </PostBuildEvent>
+      "..\NuGet\nuget.exe" pack ..\DasJS.nuspec
+      "..\NuGet\nuget.exe" push -source \\next-btfs\Packages\ DasJS.*.nupkg
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
