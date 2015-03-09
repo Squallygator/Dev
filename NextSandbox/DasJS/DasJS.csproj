@@ -78,10 +78,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Nuget\NuGet.exe" />
-    <Content Include="Scripts\DAS\DAS-All.js">
+    <Content Include="bundles\DAS\DAS-All.js">
       <DependentUpon>DAS-All.js.bundle</DependentUpon>
     </Content>
-    <Content Include="Scripts\DAS\DAS-All.min.js">
+    <Content Include="bundles\DAS\DAS-All.min.js">
       <DependentUpon>DAS-All.js</DependentUpon>
     </Content>
     <Content Include="Scripts\DAS\DASCommon.js" />
@@ -90,8 +90,8 @@
       <DependentUpon>DASCommon.min.js</DependentUpon>
     </Content>
     <Content Include="Scripts\DAS\jquery.dasSelectListItem.js" />
-    <Content Include="Scripts\DAS\DAS-All.js.bundle" />
-    <Content Include="Scripts\DAS\DAS-All.min.js.map">
+    <Content Include="bundles\DAS\DAS-All.js.bundle" />
+    <Content Include="bundles\DAS\DAS-All.min.js.map">
       <DependentUpon>DAS-All.min.js</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />

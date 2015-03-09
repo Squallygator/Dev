@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
 	<metadata>
 		<id>DasJS</id>
-		<version>1.0.3-alpha</version>
+		<version>1.0.7-alpha</version>
 		<title>Das JS Repository</title>
 		<authors>menardaisp</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,7 +15,6 @@
 		</dependencies>
 	</metadata>
 	<files>
-	  <file src="scripts\DAS\DAS-All.min.js" target="content/scripts/DAS" />
-    <file src="scripts\DAS\DAS-All.min.js.map" target="content/scripts/DAS" />
+	  <file src="bundles\**\*.*" target="content/scripts" exclude="**\*.js.bundle" />
   </files>
 </package>
