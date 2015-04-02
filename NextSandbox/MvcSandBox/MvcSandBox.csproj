@@ -124,13 +124,13 @@
     <Content Include="Scripts\Jasmine\jasmine.css" />
     <Content Include="Scripts\Jasmine\jasmine.js" />
     <Content Include="Scripts\Jasmine\json2.js" />
-    <Content Include="Scripts\DAS\DAS-All.min.js.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\DAS\DAS-All.min.js.map" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />

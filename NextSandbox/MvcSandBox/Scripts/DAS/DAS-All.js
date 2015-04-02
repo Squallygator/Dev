@@ -1,8 +1,8 @@
 ﻿///#source 1 1 /Scripts/DAS/jquery.dasSelectListItem.js
 
 ///#source 1 1 /Scripts/DAS/DASCommon.js
-/// <reference path="~/Scripts/jquery-2.1.1.js" />
-
+/// <reference path="~/Scripts/jquery-2.1.3.js" />
+/// <reference path="~/Scripts/jquery-2.1.3.intellisense.js" />
 // -------------------------------------------------------------------------------------
 // String Prototypes
 // -------------------------------------------------------------------------------------
@@ -15,35 +15,41 @@ String.prototype.DASContains = function (s) {
 // JQuery Extensions Plugins
 // -------------------------------------------------------------------------------------
 (function ($) {
-    jQuery.fn.DASValue = function () {
-        var $elt = $(this);
-        if ($elt.is("input, select, textarea")) {
-            if (arguments.length > 0) {
-                var value = arguments[0];
-                $elt.val(value);
-                return value;
+    $.fn.extend({
+        DASValue: function () {
+            var $elt = $(this);
+            if ($elt.is("input, select, textarea")) {
+                if (arguments.length > 0) {
+                    var value = arguments[0];
+                    $elt.val(value);
+                    return value;
+                } else {
+                    return $elt.val();
+                }
             } else {
-                return $elt.val();
+                if (arguments.length > 0) {
+                    var valueHtml = arguments[0];
+                    $elt.html(valueHtml);
+                    return valueHtml;
+                } else {
+                    return $elt.html();
+                }
             }
-        } else {
-            if (arguments.length > 0) {
-                var valueHtml = arguments[0];
-                $elt.html(valueHtml);
-                return valueHtml;
-            } else {
-                return $elt.html();
-            }
+        },
+        DisableDatePicker: function () {
+            var $elt = $(this);
+            $elt.datepicker('destroy');
+            $elt.attr("readonly", "readonly");
+        },
+        EnableDatePicker: function () {
+            var $elt = $(this);
+            $elt.attr("autocomplete", "off");
+            $elt.removeAttr("readonly");
+            $elt.datepicker();
         }
-        ////var valueProp = $(this).is("input, select, textarea") ? $(this).val : $(this).html;
-        ////if (arguments.length > 0) {
-        ////    var value = arguments[0];
-        ////    valueProp(value);
-        ////    return value;
-        ////} else {
-        ////    return valueProp();
-        ////}
-    };
+    });
 })(jQuery);
+
 
 // -------------------------------------------------------------------------------------
 // Number Prototypes
@@ -76,6 +82,7 @@ var parseLocalFloat = function (num) {
     // todo : attention ceci est une vilaine rustime !!!
     return num ? parseFloat(num.split(' ').join('').replace(",", ".")) : null;
 };
+
 var parseLocalInt = function(num) {
     // todo : internationalisation !
     // todo : attention ceci est une vilaine rustime !!!
@@ -96,39 +103,41 @@ var parseLocalDate = function(str) {
 };
 
 // CF : http://jsfiddle.net/squallygator/6kxsupr9/6/
-$.fn.extend({
-    GetJsonList: function () {
-        var $list = $(this);
-        if (!$list || $list.length === 0 || !$list.is("select")) return null;
-        var $options = $list.find('option');
-        var result = $.map($options, function (option) {
-            var $option = $(option);
-            return {
-                Value: $option.attr('value'),
-                Text: $option.text(),
-                Selected: $option.prop('selected'),
-                Disabled: $option.prop('disabled'),
-            };
-        });
-        return result;
-    },
-    FillJsonList: function (values) {
-        var $list = $(this);
-        if (!$list || $list.length === 0 || !$list.is("select")) return;
-        $list.empty();
-        for (var i = 0; i < values.length; i++) {
-            var item = values[i];
-            var $option = $('<option>');
-            if (item.hasOwnProperty('Value')) $option.val(item.Value);
-            if (item.hasOwnProperty('Selected')) $option.prop('selected', item.Selected);
-            if (item.hasOwnProperty('Disabled')) $option.prop('disabled', item.Disabled);
-            if (item.hasOwnProperty('Text')) {
-                $option.text(item.Text);
-                $list.append($option);
+(function($) {
+    $.fn.extend({
+        GetJsonList: function() {
+            var $list = $(this);
+            if (!$list || $list.length === 0 || !$list.is("select")) return null;
+            var $options = $list.find('option');
+            var result = $.map($options, function(option) {
+                var $option = $(option);
+                return {
+                    Value: $option.attr('value'),
+                    Text: $option.text(),
+                    Selected: $option.prop('selected'),
+                    Disabled: $option.prop('disabled'),
+                };
+            });
+            return result;
+        },
+        FillJsonList: function(values) {
+            var $list = $(this);
+            if (!$list || $list.length === 0 || !$list.is("select")) return;
+            $list.empty();
+            for (var key in values) {
+                var item = values[key];
+                var $option = $('<option>');
+                if (item.hasOwnProperty('Value')) $option.val(item.Value);
+                if (item.hasOwnProperty('Selected')) $option.prop('selected', item.Selected);
+                if (item.hasOwnProperty('Disabled')) $option.prop('disabled', item.Disabled);
+                if (item.hasOwnProperty('Text')) {
+                    $option.text(item.Text);
+                    $list.append($option);
+                }
             }
         }
-    }
-});
+    });
+})(jQuery);
 
 var getFuncFromSettingsOrDefault = function (settings, funcName, defaultFunc) {
     if (!settings) return defaultFunc;
@@ -139,6 +148,7 @@ var getFuncFromSettingsOrDefault = function (settings, funcName, defaultFunc) {
     return defaultFunc;
 };
 
+///#source 1 1 /Scripts/DAS/GenericAjaxModel.js
 var GenericAjaxModel = (function () {
     var ctor = function () {
         return {};
@@ -147,12 +157,15 @@ var GenericAjaxModel = (function () {
         getFunc: function (elt) { return elt; },
         getValue: function (elt) { return (elt) ? $(elt).DASValue() : null; },
         setValue: function (elt, value) { $(elt).DASValue(value); },
-        onChangeFunc: function (elt) { return elt; },
+        onChangeFunc: function (elt) { return elt; }
     };
     ctor.prototype.CreateProperty = function (propertyName, settings) {
         var that = this;
         if (!settings) return;
-        if (!settings.selector) return;
+        if (!settings.hasOwnProperty('selector') && !settings.hasOwnProperty('getValue')) {
+            console.log('Erreur GenericAjaxModel.CreateProperty : ni selector, ni getValue declare pour ' + propertyName);
+            return;
+        }
 
         var getElement = function () { return $(settings.selector); };
         if (settings.hasOwnProperty('container')) {
@@ -192,14 +205,20 @@ var GenericAjaxModel = (function () {
     ctor.prototype.defineDASProp = function (obj, propertyName, getEltFunc, getFunc, extraSetFunc) {
         Object.defineProperty(obj, propertyName, {
             get: function () {
-                var elt = getEltFunc();
-                var returnValue = (elt) ? $(elt).DASValue() : null;
+                var returnValue = null;
+                if (getEltFunc && typeof (getEltFunc) === "function") {
+                    var elt = getEltFunc();
+                    returnValue = (elt) ? $(elt).DASValue() : null;
+                }
                 return getFunc && typeof (getFunc) === 'function' ? getFunc(returnValue) : returnValue;
             },
             set: function (value) {
-                var elt = getEltFunc();
-                if (!elt) return;
-                $(elt).DASValue(value);
+                if (getEltFunc && typeof (getEltFunc) === "function") {
+                    var elt = getEltFunc();
+                    if (!elt) return;
+                    $(elt).DASValue(value);
+                }
+
                 if (extraSetFunc && typeof (extraSetFunc) === 'function') extraSetFunc(value);
             }
         });
@@ -251,14 +270,16 @@ var GenericAjaxModel = (function () {
                 if (!$list) return;
                 $list.empty();
                 for (var key in values) {
-                    var item = values[key];
-                    var $option = $('<option>');
-                    if (item.hasOwnProperty('Value')) $option.val(item.Value);
-                    if (item.hasOwnProperty('Selected')) $option.prop('selected', item.Selected);
-                    if (item.hasOwnProperty('Disabled')) $option.prop('disabled', item.Disabled);
-                    if (item.hasOwnProperty('Text')) {
-                        $option.text(item.Text);
-                        $list.append($option);
+                    if (values.hasOwnProperty(key)) {
+                        var item = values[key];
+                        var $option = $('<option>');
+                        if (item.hasOwnProperty('Value')) $option.val(item.Value);
+                        if (item.hasOwnProperty('Selected')) $option.prop('selected', item.Selected);
+                        if (item.hasOwnProperty('Disabled')) $option.prop('disabled', item.Disabled);
+                        if (item.hasOwnProperty('Text')) {
+                            $option.text(item.Text);
+                            $list.append($option);
+                        }
                     }
                 }
                 if (extraSetFunc && typeof (extraSetFunc) === 'function') extraSetFunc(values);
@@ -288,13 +309,12 @@ var GenericAjaxModel = (function () {
     ctor.prototype.FillFromAjax = function (url, ajaxType, cols) {
         ajaxType = ajaxType || "GET";
         var that = this;
-        if (!url) return;
-        $.ajax({
+        if (!url) return null;
+        return $.ajax({
             url: url,
             type: ajaxType,
             data: that.toDTO(cols)
-        }).success(function (data) {
-            $('#Save').removeAttr('disabled');
+        }).done(function (data) {
             $.map(data, function (value, key) {
                 that[key] = value;
             });
@@ -303,3 +323,20 @@ var GenericAjaxModel = (function () {
 
     return ctor;
 })();
+///#source 1 1 /Scripts/DAS/DasOnChange.js
+$(document).ready(function () {
+    $('*[data-das-onchange-id]').each(function (idx, elt) {
+        var $destination = $(elt);
+        var params = $destination.data();
+        if (!params.hasOwnProperty("dasOnchangeId")) return;
+        if (!params.hasOwnProperty("dasOnchangeUrl")) return;
+        if (!params.hasOwnProperty("dasOnchangeName")) return;
+        var $relativeElt = $('#' + params.dasOnchangeId);
+        $relativeElt.on('change', function () {
+            var value = $relativeElt.val();
+            var url = params.dasOnchangeUrl.addUrlParam(params.dasOnchangeName, value);
+            $destination.load(url);
+        });
+        //$(params.dasOnchangeId).trigger('change');
+    });
+});
