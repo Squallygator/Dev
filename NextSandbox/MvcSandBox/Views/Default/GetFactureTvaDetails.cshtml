@@ -1,0 +1,15 @@
+﻿@using MvcSandBox.Extensions
+@model MvcSandBox.Models.DetailFacture
+@{
+    Layout = null;
+    var regimeTVAList = ViewBag.RegimeTvaList as IEnumerable<SelectListItem>;
+}
+<ul>
+    <li>CodeContrat : @Model.CodeContrat</li>
+    <li>DetailId : @Model.Identifiant</li>
+    <li>FactureId : @Model.FactureId</li>
+    <li>RegimeTvaId : @Model.RegimeTvaId : @Html.ReadOnlyDropDownListFor(_ => _.RegimeTvaId, regimeTVAList)</li>
+    
+    <li>Editable : @Model.Editable</li>
+</ul>
+

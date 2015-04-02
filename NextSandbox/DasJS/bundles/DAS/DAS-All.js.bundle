@@ -12,5 +12,7 @@
   <files>
     <file>/Scripts/DAS/jquery.dasSelectListItem.js</file>
     <file>/Scripts/DAS/DASCommon.js</file>
+    <file>/Scripts/DAS/GenericAjaxModel.js</file>
+    <file>/Scripts/DAS/DasOnChange.js</file>
   </files>
 </bundle>

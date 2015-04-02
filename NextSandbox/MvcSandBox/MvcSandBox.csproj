@@ -153,9 +153,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Extensions\HtmlUtilsExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DetailFacture.cs" />
     <Compile Include="Models\SimpleSearchHeaderModel.cs" />
     <Compile Include="Models\SimpleSearchModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +169,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Default\Tests.cshtml" />
+    <Content Include="Views\Default\DasChange.cshtml" />
+    <Content Include="Views\Default\GetFactureTvaDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

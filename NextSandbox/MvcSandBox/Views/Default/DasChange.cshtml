@@ -1,0 +1,39 @@
+﻿@model MvcSandBox.Models.DetailFacture
+@{
+
+    ViewBag.Title = "DasChange";
+    var getFactureTvaDetailsUrl = Html.Raw(Url.Action("GetFactureTvaDetails", new { codeContrat = Model.CodeContrat, editable = Model.Editable, detailId = Model.Identifiant, factureId = Model.FactureId }));
+    var regimeTVAList = ViewBag.RegimeTvaList as IEnumerable<SelectListItem>;
+}
+<h2>DasChange</h2>
+@Html.DropDownListFor(_ => _.RegimeTvaId, regimeTVAList)
+<div id="dvCategoryResults"
+         data-das-onchange-id="RegimeTvaId"
+         data-das-onchange-url="@(getFactureTvaDetailsUrl)"
+         data-das-onchange-name="regimeTvaId">
+        -
+    </div>
+
+    <script type="text/javascript">
+        String.prototype.addUrlParam = function (fieldName, val) {
+            var str = this;
+            var uri = str.split('?');
+            var base = uri[0];
+            var params = uri.length ? uri[1] : null;
+            str = base
+                + ((params) ? '?' + params + '&' : '?')
+                + fieldName + '=' + val;
+            return str;
+        }
+        $(document).ready(function () {
+            $('*[data-das-onchange-id]').each(function (idx, elt) {
+                var params = $(elt).data();
+                $('#' + params.dasOnchangeId).on('change', function () {
+                    var value = $('#' + params.dasOnchangeId).val();
+                    var url = params.dasOnchangeUrl.addUrlParam(params.dasOnchangeName, value);
+                    $(elt).load(url);
+                });
+                $(params.dasOnchangeId).trigger('change');
+            });
+        });
+    </script>
