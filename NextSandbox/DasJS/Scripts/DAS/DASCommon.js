@@ -1,4 +1,5 @@
 ﻿/// <reference path="~/Scripts/jquery-2.1.3.js" />
+/// <reference path="~/Scripts/jquery-ui-1.11.3.custom.js" />
 /// <reference path="~/Scripts/jquery-2.1.3.intellisense.js" />
 // -------------------------------------------------------------------------------------
 // String Prototypes
@@ -43,6 +44,38 @@ String.prototype.DASContains = function (s) {
             $elt.attr("autocomplete", "off");
             $elt.removeAttr("readonly");
             $elt.datepicker();
+        },
+        // CF : http://jsfiddle.net/squallygator/6kxsupr9/6/
+        GetJsonList: function () {
+            var $list = $(this);
+            if (!$list || $list.length === 0 || !$list.is("select")) return null;
+            var $options = $list.find('option');
+            var result = $.map($options, function (option) {
+                var $option = $(option);
+                return {
+                    Value: $option.attr('value'),
+                    Text: $option.text(),
+                    Selected: $option.prop('selected'),
+                    Disabled: $option.prop('disabled')
+                };
+            });
+            return result;
+        },
+        FillJsonList: function (values) {
+            var $list = $(this);
+            if (!$list || $list.length === 0 || !$list.is("select")) return;
+            $list.empty();
+            for (var key in values) {
+                var item = values[key];
+                var $option = $('<option>');
+                if (item.hasOwnProperty('Value')) $option.val(item.Value);
+                if (item.hasOwnProperty('Selected')) $option.prop('selected', item.Selected);
+                if (item.hasOwnProperty('Disabled')) $option.prop('disabled', item.Disabled);
+                if (item.hasOwnProperty('Text')) {
+                    $option.text(item.Text);
+                    $list.append($option);
+                }
+            }
         }
     });
 })(jQuery);
@@ -98,43 +131,6 @@ var parseLocalDate = function(str) {
     // todo : attention ceci est une vilaine rustime !!!
     return str;
 };
-
-// CF : http://jsfiddle.net/squallygator/6kxsupr9/6/
-(function($) {
-    $.fn.extend({
-        GetJsonList: function() {
-            var $list = $(this);
-            if (!$list || $list.length === 0 || !$list.is("select")) return null;
-            var $options = $list.find('option');
-            var result = $.map($options, function(option) {
-                var $option = $(option);
-                return {
-                    Value: $option.attr('value'),
-                    Text: $option.text(),
-                    Selected: $option.prop('selected'),
-                    Disabled: $option.prop('disabled'),
-                };
-            });
-            return result;
-        },
-        FillJsonList: function(values) {
-            var $list = $(this);
-            if (!$list || $list.length === 0 || !$list.is("select")) return;
-            $list.empty();
-            for (var key in values) {
-                var item = values[key];
-                var $option = $('<option>');
-                if (item.hasOwnProperty('Value')) $option.val(item.Value);
-                if (item.hasOwnProperty('Selected')) $option.prop('selected', item.Selected);
-                if (item.hasOwnProperty('Disabled')) $option.prop('disabled', item.Disabled);
-                if (item.hasOwnProperty('Text')) {
-                    $option.text(item.Text);
-                    $list.append($option);
-                }
-            }
-        }
-    });
-})(jQuery);
 
 var getFuncFromSettingsOrDefault = function (settings, funcName, defaultFunc) {
     if (!settings) return defaultFunc;

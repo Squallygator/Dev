@@ -14,5 +14,11 @@
     <file>/Scripts/DAS/DASCommon.js</file>
     <file>/Scripts/DAS/GenericAjaxModel.js</file>
     <file>/Scripts/DAS/DasOnChange.js</file>
-  </files>
+	  <file>/Scripts/DAS/DasAjaxReload.js</file>
+    <file>/Scripts/DAS/DasSearchFromSessionStorage.js</file>
+    <file>/Scripts/DAS/DasSearchFromUrl.js</file>
+    <file>/Scripts/DAS/DasSessionData.js</file>
+    <file>/Scripts/DAS/DasSessionSearch.js</file>
+    <file>/Scripts/DAS/DasTrackingModification.js</file>
+    <file>/Scripts/DAS/UrlUtils.js</file>  </files>
 </bundle>

@@ -1,4 +1,9 @@
-﻿var GenericAjaxModel = (function () {
+﻿/// <reference path="~/Scripts/jquery-2.1.3.js" />
+/// <reference path="~/Scripts/jquery-ui-1.11.3.custom.js" />
+/// <reference path="~/Scripts/jquery-2.1.3.intellisense.js" />
+/// <reference path="DASCommon.js" />
+
+var GenericAjaxModel = (function () {
     var ctor = function () {
         return {};
     };
@@ -48,92 +53,6 @@
                 that.CreateProperty(key, propertiesDefinition[key]);
             }
         }
-    };
-
-    // Obsolete Use CreateProperty
-    ctor.prototype.defineDASProp = function (obj, propertyName, getEltFunc, getFunc, extraSetFunc) {
-        Object.defineProperty(obj, propertyName, {
-            get: function () {
-                var returnValue = null;
-                if (getEltFunc && typeof (getEltFunc) === "function") {
-                    var elt = getEltFunc();
-                    returnValue = (elt) ? $(elt).DASValue() : null;
-                }
-                return getFunc && typeof (getFunc) === 'function' ? getFunc(returnValue) : returnValue;
-            },
-            set: function (value) {
-                if (getEltFunc && typeof (getEltFunc) === "function") {
-                    var elt = getEltFunc();
-                    if (!elt) return;
-                    $(elt).DASValue(value);
-                }
-
-                if (extraSetFunc && typeof (extraSetFunc) === 'function') extraSetFunc(value);
-            }
-        });
-    };
-
-    // Obsolete Use CreateProperty
-    ctor.prototype.defineDASSelectListItems = function (obj, propertyName, getListFunc, getFunc, extraSetFunc) {
-        var get$List = function (getFunc) {
-            var list = getFunc();
-            var $list = $(list);
-            if (!list || list.length === 0 || !$list.is("select")) return null;
-            return $list;
-        }
-        Object.defineProperty(obj, propertyName, {
-            get: function () {
-                var $list = get$List(getListFunc);
-                if (!$list) return null;
-                var $options = $list.find('option');
-                var result = $.map($options, function (option) {
-                    return {
-                        Value: option.value,
-                        Text: option.text,
-                        Selected: option.prop('selected')
-                    };
-                });
-                return getFunc && typeof (getFunc) === 'function' ? getFunc(result) : result;
-            },
-            set: function (values) {
-                debugger;
-                var actualValues = obj[propertyName];
-                var equals = actualValues.length === values.length;
-                if (equals) {
-                    for (var i = 0; i < actualValues.length; i++) {
-                        var isPresent = false;
-                        for (var j = 0; j < values.length; j++) {
-                            if (actualValues[i]['Value'] === values[j]['Value'] && actualValues[i]['Selected'] === values[j]['Selected']) {
-                                isPresent = true;
-                                break;
-                            }
-                        }
-                        if (!isPresent) {
-                            equals = false;
-                            break;
-                        }
-                    }
-                    if (equals) return;
-                }
-                var $list = get$List(getListFunc);
-                if (!$list) return;
-                $list.empty();
-                for (var key in values) {
-                    if (values.hasOwnProperty(key)) {
-                        var item = values[key];
-                        var $option = $('<option>');
-                        if (item.hasOwnProperty('Value')) $option.val(item.Value);
-                        if (item.hasOwnProperty('Selected')) $option.prop('selected', item.Selected);
-                        if (item.hasOwnProperty('Disabled')) $option.prop('disabled', item.Disabled);
-                        if (item.hasOwnProperty('Text')) {
-                            $option.text(item.Text);
-                            $list.append($option);
-                        }
-                    }
-                }
-                if (extraSetFunc && typeof (extraSetFunc) === 'function') extraSetFunc(values);
-            }
-        });
     };
 
     ctor.prototype.toDTO = function (cols) {
