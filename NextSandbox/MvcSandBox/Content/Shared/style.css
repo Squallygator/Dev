@@ -1,0 +1,180 @@
+﻿/* ----------------------------- */
+/* CSS 
+/* Utilisation : 
+        Body commun
+        Animation entre 2 éléments
+        Liens
+        Aide
+        Visibilité
+        Pas de données
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* Section : Général
+/* ----------------------------- */
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+    font-size: 12px;
+    color: #222222;
+    cursor: default;
+}
+
+/* ----------------------------- */
+/* Section : ID
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* Section : Classes
+/* ----------------------------- */
+/* -->  Animation entre 2 éléments */
+.transition {
+    -webkit-transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    -ms-transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    -o-transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+    transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.transition-menu {
+    -webkit-transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1), width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1), width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1), width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1), width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1), margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1), width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --> Liens */
+
+a:link, a:visited {
+    color: #0995c2;
+}
+
+a:hover {
+    color: #222222;
+}
+
+/* --> Selection */
+
+::selection {
+    background-color: #318eac;
+    color: #fff;
+}
+
+/* --> Custom scrollbar for Chrome */
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #bcbcbc;
+    border: 0px;
+    border-radius: 0px;
+}
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #a9a9a9;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:active {
+        background: #939393;
+    }
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #dddddd;
+    border: 0px;
+    border-radius: 0px;
+}
+
+    .custom-scrollbar::-webkit-scrollbar-track:hover {
+        background: #dddddd;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track:active {
+        background: #dddddd;
+    }
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* --> Aide */
+
+.help {
+    font-style: italic;
+    color: #007D40;
+}
+
+.warning {
+    font-style: italic;
+    color: #DF7700;
+}
+
+    .warning::before {
+        background-image: url("../../Images/icon_table.png");
+        background-repeat: no-repeat;
+        background-position: -120px 0;
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-bottom: -3px;
+    }
+
+.help-red {
+    font-style: italic;
+    color: #b94a48;
+}
+
+.info-block {
+    background-color: #EEEEEE;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* --> Bloc de lien vers une création */
+p.help-block {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+    color: #007D40;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* --> Pas de données */
+.no-data {
+    color: #9b9b9b;
+    font-style: italic;
+}
+
+/* --> Visibilité */
+.invisible {
+    display: none;
+}
+
+/* --> Positionnement */
+a.link-right {
+    float: right;
+}
+
+a.link-left {
+    float: left;
+}
+
+.spinner-loading {
+    background: url(../../images/ajax-loader.gif) no-repeat top left;
+    height: 32px;
+    width: 32px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

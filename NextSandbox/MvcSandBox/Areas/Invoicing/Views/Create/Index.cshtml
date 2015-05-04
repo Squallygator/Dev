@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Maquette Creation de Facture";
+    Layout = "../Shared/_Layout.cshtml";
+}
+@section HeadSection
+{
+    <script src="~/Scripts/dk/dk-utils.js"></script>
+    <script src="~/Scripts/dk/jquery.dk.js"></script>
+    <script src="~/Scripts/dk/dk-manager.js"></script>
+}
+<div id="content" dk-manager="dkManager">
+    <div id="step1">
+        <h1>Création de Facture</h1>
+        <div class="form-data-container cols1">
+            <div class="wrapper">
+                <label class="libelle mandatory" for="VehiculeId-txt">Véhicule</label>
+                <div class="ui-autocomplete-container">
+                    <input id="VehiculeId-txt" dk-id="VehiculeIdAutoComplete" name="VehiculeIdAutoCompleteLibelle" class="largeinput ui-autocomplete-input" type="text" data-das-tooltip-text="Rechercher par n° véhicule, immat. ou châssis 2" autocomplete="off" style="cursor: auto;" />
+                    <input id="VehiculeId" dk-id="VehiculeId" name="VehiculeId" type="hidden" data-das-autocomplete-text="VehiculeId-txt" />
+                </div>
+            </div>
+        </div>
+        <div class="form-data-container cols2">
+            <div class="wrapper">
+                <label class="libelle mandatory" for="NatureFactureId">Nature de facture</label>
+                <select dk-id="NatureFactureId" data-naturefacture-achatbb="1" data-naturefacture-css-class-achatbb="NatureFactureAchatBB" data-naturefacture-css-class-ventevo="NatureFactureVenteVO" data-naturefacture-ventevo="2" id="NatureFactureId" name="NatureFactureId">
+                    <option selected="selected" value=""></option>
+                    <option value="0">Vente VN</option>
+                    <option value="1">Achat BB (VO)</option>
+                </select>
+            </div>
+            <div class="wrapper">
+                <label class="libelle mandatory" for="TypeFactureId">Type facture</label>
+                <span id="TypeFactureIdEmpty" class="read-only help">Sélectionnez un véhicule et une nature de facture</span>
+                <select dk-id="TypeFactureId" id="TypeFactureId" name="TypeFactureId" class="invisible">
+                    <option value="1">Avoir</option>
+                    <option value="2">Avoir Partiel</option>
+                    <option value="0">Facture</option>
+                    <option value="3">facture Partielle</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="step2">
+        <h1>Comptabilité</h1>
+        <div class="form-data-container cols2">
+            <div class="wrapper">
+                <label class="libelle mandatory" for="Date">Date de facture</label>
+                <input autocomplete="off" class="jqPicker hasDatepicker" id="Date" name="Date" type="text" value="" />
+            </div>
+            <div class="wrapper">
+                <label class="libelle">N° de facture externe</label>
+                <input autocomplete="off" id="NumeroFacture" name="NumeroFacture" type="text" value="" />
+            </div>
+            <input id="NumeroFactureInterne" name="NumeroFactureInterne" type="hidden" value="" />
+        </div>
+        <div id="autocompleteMatricule">
+
+
+            <div class="form-data-container cols1">
+
+                <div class="wrapper">
+                    <span class="libelle">Code comptable à facturer</span>
+                    <span class="read-only help">Sélectionnez une nature de facture</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

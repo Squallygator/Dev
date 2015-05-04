@@ -108,10 +108,16 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Shared\controls.css" />
+    <Content Include="Content\Shared\style.css" />
+    <Content Include="Content\Shared\Zones\content.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Icon.png" />
+    <Content Include="Images\autocomplete.png" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\mandatory.png" />
     <Content Include="Scripts\Common\jQuery.Das.Data.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -119,6 +125,9 @@
     <Content Include="Scripts\DasAjaxReload.js" />
     <Content Include="Scripts\DAS\DAS-All.js" />
     <Content Include="Scripts\DAS\DAS-All.min.js" />
+    <Content Include="Scripts\dk\dk-manager.js" />
+    <Content Include="Scripts\dk\dk-utils.js" />
+    <Content Include="Scripts\dk\jquery.dk.js" />
     <Content Include="Scripts\Jasmine\boot.js" />
     <Content Include="Scripts\Jasmine\jasmine-html.js" />
     <Content Include="Scripts\Jasmine\jasmine.css" />
@@ -131,6 +140,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Scripts\DAS\DAS-All.min.js.map" />
+    <Content Include="Areas\Invoicing\Views\web.config" />
+    <Content Include="Areas\Invoicing\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Invoicing\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Invoicing\Views\Create\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -152,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Invoicing\Controllers\CreateController.cs" />
+    <Compile Include="Areas\Invoicing\InvoicingAreaRegistration.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Extensions\HtmlUtilsExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Invoicing\Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
