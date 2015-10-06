@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSandBox", "MvcSandBox\MvcSandBox.csproj", "{EFFEC2EC-7D41-4CFF-83DA-8BDBE45FCD47}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		WebEssentials-Settings.json = WebEssentials-Settings.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularSandbox", "AngularSandbox\AngularSandbox.csproj", "{52181DF6-9170-43CF-954F-A3837765F753}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,12 @@ Global
 		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.PackNuget|Any CPU.Build.0 = PackNuget|Any CPU
 		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B3E4C3E-B9A2-451E-AF03-252142DEF298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52181DF6-9170-43CF-954F-A3837765F753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52181DF6-9170-43CF-954F-A3837765F753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52181DF6-9170-43CF-954F-A3837765F753}.PackNuget|Any CPU.ActiveCfg = Release|Any CPU
+		{52181DF6-9170-43CF-954F-A3837765F753}.PackNuget|Any CPU.Build.0 = Release|Any CPU
+		{52181DF6-9170-43CF-954F-A3837765F753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52181DF6-9170-43CF-954F-A3837765F753}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

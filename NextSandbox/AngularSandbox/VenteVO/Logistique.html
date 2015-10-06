@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="logistique">
+<head>
+    <title>Vente VO Logisitque</title>
+    <link href="../css/Logistique.css" rel="stylesheet" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/VenteVO/logistique.js"></script>
+</head>
+<body>
+    <h1>Vente VO - Logistique</h1>
+    <hr />
+    <table class="das-table with-alternate-row" ng-controller="logistiqueController as logistique">
+        <thead>
+            <tr>
+                <th>N° véhicule</th>
+                <th>Site de stockage</th>
+                <th>Code postal et ville du site de stockage</th>
+                <th>Type de livraison</th>
+                <th>Lieu de livraison</th>
+                <th>adresse de livraison</th>
+                <th>Montant HT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="detail in logistique.details">
+                <td><a href="{{detail.VehiculeLink}}">{{detail.VehiculeId}}</a></td>
+                <td>{{detail.Stockage}}</td>
+                <td>{{detail.VilleStockage}}</td>
+                <td>
+                    <select id="CommandeEtatTransportId" name="CommandeEtatTransportId" ng-model="detail.EtatTransport" ng-change="logistique.EtatTransportChange(detail.VehiculeId)">
+                        <option ng-repeat="etatTransport in logistique.ddl.EtatTransport" value="{{etatTransport.value}}">{{etatTransport.text}}</option>
+                    </select>
+                </td>
+                <td>
+                    <span class="read-only" ng-if="detail.VillesLivraison.length===1">{{detail.VillesLivraison[0].text}}</span>
+                    <input type="hidden" id="VilleLivraison" ng-if="detail.VillesLivraison.length===1" value="{{detail.VillesLivraison[0].value}}" />
+                    <select id="VilleLivraison" name="VilleLivraison"
+                            ng-model="detail.VilleLivraison"
+                            ng-if="detail.VillesLivraison.length>1"
+                            ng-change="logistique.VilleLivraisonChange(detail.VehiculeId)">
+                        <option ng-repeat="ville in detail.VillesLivraison" value="{{ville.value}}">
+                            {{ville.text}}
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <span class="read-only" style="white-space: pre; line-height: 1.5em;">
+                        Daimlerstr. 1
+                        32108
+                        BAD SALZUFLEN
+                    </span>
+                    <input id="AdresseLivraison" name="AdresseLivraison" type="hidden" value="Daimlerstr. 1
+32108
+                                                                          BAD SALZUFLEN ">
+                </td>
+                <td><input autocomplete="off" class="montantSaisie input-numeric" id="LivraisonMontantHT" name="LivraisonMontantHT" type="text" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

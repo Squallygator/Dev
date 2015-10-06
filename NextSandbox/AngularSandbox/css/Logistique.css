@@ -1,0 +1,32 @@
+table.das-table {
+    clear: left;
+    border-collapse: separate;
+    border-spacing: 1px;
+    margin: 0;
+    outline-style: none;
+    table-layout: auto;
+    max-height: 341px;
+    overflow: auto;
+}table.das-table thead {
+     display: table-header-group;
+     vertical-align: middle;
+ }table.das-table.with-alternate-row tbody tr:not(.summary):not(.added):not(.deleted):not(.selected):nth-of-type(odd) {
+      background-color: #efefef;
+  }table.das-table tbody tr {
+       background-image: none;
+       border: 1px solid #fff;
+       outline-style: none;
+   }table.das-table tbody tr td {
+        border: 0;
+        font-weight: normal;
+        height: 30px;
+        line-height: 24px;
+        overflow: hidden;
+        padding: 0 2px;
+        min-width: 50px;
+        text-align: left;
+        -moz-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    }
