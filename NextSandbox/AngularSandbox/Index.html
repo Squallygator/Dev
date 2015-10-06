@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<html ng-app="indexApp">
 <head>
     <title>Test Angular</title>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/index.js"></script>
 </head>
-<body>
-<h1>Tests Angular</h1>
+<body ng-controller="indexController as index">
+<h1>{{index.Titre}}</h1>
 <ul>
     <li><a href="VenteVO/Logistique.html">VenteVO/Logistique</a></li>
 </ul>

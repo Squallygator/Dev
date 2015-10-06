@@ -28,10 +28,8 @@
                 <td>{{detail.Stockage}}</td>
                 <td>{{detail.VilleStockage}}</td>
                 <td>
-                    <select id="EtatTransport" name="EtatTransport" 
-                    	ng-model="detail.EtatTransport"
-                    	ng-change="logistique.EtatTransportChange(detail)">
-                        <option ng-repeat="etatTransport in logistique.ListeEtatTransport" value="{{etatTransport.value}}">{{etatTransport.text}}</option>
+                    <select id="CommandeEtatTransportId" name="CommandeEtatTransportId" ng-model="detail.EtatTransport" ng-change="logistique.EtatTransportChange(detail.VehiculeId)">
+                        <option ng-repeat="etatTransport in logistique.ddl.EtatTransport" value="{{etatTransport.value}}">{{etatTransport.text}}</option>
                     </select>
                 </td>
                 <td>
@@ -40,7 +38,7 @@
                     <select id="VilleLivraison" name="VilleLivraison"
                             ng-model="detail.VilleLivraison"
                             ng-if="detail.VillesLivraison.length>1"
-                            ng-change="logistique.VilleLivraisonChange(detail)">
+                            ng-change="logistique.VilleLivraisonChange(detail.VehiculeId)">
                         <option ng-repeat="ville in detail.VillesLivraison" value="{{ville.value}}">
                             {{ville.text}}
                         </option>

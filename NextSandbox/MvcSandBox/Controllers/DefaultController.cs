@@ -81,7 +81,7 @@ namespace MvcSandBox.Controllers
             {
                 new SelectListItem()
                 {
-                    Disabled = true,
+                    // Disabled = true,
                     Value = "",
                     Text = "Inconnu"
                 },
