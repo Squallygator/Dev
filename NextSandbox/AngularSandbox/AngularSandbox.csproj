@@ -79,6 +79,7 @@
     <Content Include="Scripts\angular-resource.min.js.map">
       <DependentUpon>angular-resource.js</DependentUpon>
     </Content>
+    <None Include="Api\Entite\123\VillesLivraison.js" />
     <None Include="Scripts\index.js" />
     <None Include="VenteVO\old\Logistique.html" />
     <None Include="web.Debug.config">

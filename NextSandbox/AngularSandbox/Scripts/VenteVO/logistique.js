@@ -9,9 +9,11 @@ logistiqueModule.controller('logistiqueController', [ '$http', function ($http) 
       {
           VehiculeId: 38211,
           VehiculeLink: '/Vehicule/38211',
+          EntiteStockageId :456,
           Stockage: 'HN Autotransport nv',
           VilleStockage: 'B3700 TONGEREN',
           EtatTransport: '3',
+          EntiteLivraisonId :123,
           VilleLivraison: 1,
           VillesLivraison: [
               { value: 1, text: '32108 - BAD SALZUFLEN' },
@@ -40,12 +42,28 @@ logistiqueModule.controller('logistiqueController', [ '$http', function ($http) 
         }
         return detail;
     };
-    logistique.EtatTransportChange = function (detail) {
+    logistique.EtatTransportChange = function (entiteId, vehiculeId) {
+    	var detail = logistique.getDetailByVehiculeId(vehiculeId);
         if (detail) {
             alert('EtatTransportChange changed for ' + detail.VehiculeId);
+	        switch(detail.EtatTransport)
+	        {
+	        	case '1':
+	        	case '2':
+	        		detail.VilleLivraison = [];
+	        		break;
+	        	case '3':
+	        	case '4':
+	        		debugger;
+	        		$http.get('/Api/Entite/'+ entiteId +'/VillesLivraison.js').success(function(data){
+				    	detail.VilleLivraison = data;
+				    });
+				    break;
+	        }
         }
     };
-    logistique.VilleLivraisonChange = function (detail) {
+    logistique.VilleLivraisonChange = function (vehiculeId) {
+    	var detail = logistique.getDetailByVehiculeId(vehiculeId);
         if (detail) {
             alert('VilleLivraison changed for ' + detail.VehiculeId);
         }
