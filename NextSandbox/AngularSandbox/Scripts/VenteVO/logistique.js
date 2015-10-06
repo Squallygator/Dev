@@ -1,7 +1,31 @@
 ﻿angular.module('logistique', [])
-  .controller('logistiqueController', function () {
-      var logistique = this;
-      logistique.ddl = {
+  .controller('logistiqueController', ['$scope', '$http', function ($scope, $http) {
+      $scope.EtatTransportChange = function (vehiculeId) {
+          var currentLine;
+          for (var i = 0; i < $scope.details.length; i++) {
+              if ($scope.details[i].VehiculeId === vehiculeId) {
+                  currentLine = $scope.details[i];
+                  break;
+              }
+          }
+          if (currentLine) {
+              alert('EtatTransportChange changed for ' + currentLine.VehiculeId);
+          }
+      };
+      $scope.VilleLivraisonChange = function (vehiculeId) {
+          var currentLine;
+          for (var i = 0; i < $scope.details.length; i++) {
+              if ($scope.details[i].VehiculeId === vehiculeId) {
+                  currentLine = $scope.details[i];
+                  break;
+              }
+          }
+          if (currentLine) {
+              alert('VilleLivraison changed for ' + currentLine.VehiculeId);
+          }
+      };
+      $scope.Ville
+      $scope.ddl = {
           EtatTransport: [
               { value: '', text: '' },
               { value: '1', text: 'Mise à dispo. gratuite' },
@@ -10,31 +34,17 @@
               { value: '4', text: 'Transport payant' }
           ]
       };
-      logistique.EtatTransportChange = function (vehiculeId) {
-          var currentLine;
-          for (var i = 0; i < logistique.details.length; i++) {
-              if (logistique.details[i].VehiculeId === vehiculeId) {
-                  currentLine = logistique.details[i];
-                  break;
-              }
-          }
-          if (currentLine) {
-              alert('EtatTransportChange changed for ' + currentLine.VehiculeId);
-          }
-      };
-      logistique.VilleLivraisonChange = function (vehiculeId) {
-          var currentLine;
-          for (var i = 0; i < logistique.details.length; i++) {
-              if (logistique.details[i].VehiculeId === vehiculeId) {
-                  currentLine = logistique.details[i];
-                  break;
-              }
-          }
-          if (currentLine) {
-              alert('VilleLivraison changed for ' + currentLine.VehiculeId);
-          }
-      };
-    logistique.details = [
+      $http({method: 'GET', url: "http://localhost/AngularSandbox/Api/Ddl/EtatTransport.js", responseType: "json"}).
+        then(function (response) {
+          debugger;
+            $scope.ddl.EtatTransport = response;
+        }, function (response) {
+            debugger;
+            alert("Request failed");
+        });
+      $scope.VenteVOId = 1;
+      $scope.EntiteId = 123;
+      $scope.details = [
         {
             VehiculeId: 38211,
             VehiculeLink: '/Vehicule/38211',
@@ -55,5 +65,5 @@
             EtatTransport: '4',
             VilleLivraison: [{ value: '1', text: '32108 - BAD SALZUFLEN', selected: true }]
         }
-    ];
-});
+      ];
+  }]);
