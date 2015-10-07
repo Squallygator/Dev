@@ -18,7 +18,7 @@ namespace ReorganizePhotoInDirectories
 				text = args[0];
 				destinationPath = ((args.Length > 1) ? args[1] : text);
 			}
-			DirectoryInfo directoryInfo = new DirectoryInfo(text);
+			var directoryInfo = new DirectoryInfo(text);
 			var dirs = directoryInfo.GetDirectories();
 			if (dirs!=null && dirs.Length>0){
 				foreach (var dir in dirs) {
@@ -36,30 +36,21 @@ namespace ReorganizePhotoInDirectories
 			{
 				throw new FileNotFoundException();
 			}
-			DirectoryInfo directoryInfo = new DirectoryInfo(source);
+			var directoryInfo = new DirectoryInfo(source);
 			FileInfo[] files = directoryInfo.GetFiles("*.jpg", SearchOption.TopDirectoryOnly);
-			for (int i = 0; i < files.Length; i++)
-			{
-				FileInfo fileInfo = files[i];
-				string name = fileInfo.Name;
-				string fullName = fileInfo.FullName;
-				if (fullName == null)
-				{
+			foreach (var fileInfo in files) {
+				var name = fileInfo.Name;
+				var fullName = fileInfo.FullName;
+				if (fullName == null) {
 					Console.WriteLine("--> FileNotFoundException");
-				}
-				else
-				{
+				} else {
 					Console.WriteLine(fullName);
-					DateTime d;
-					if (DateTime.TryParseExact(Path.GetFileNameWithoutExtension(name), "yyyy-MM-dd HH.mm.ss", null, DateTimeStyles.None, out d))
-					{
-						Program.MoveFile(d, destinationPath, name, fullName, true);
-					}
-					else
-					{
-						if (Program.TryExtractExifDateTaken(fullName, out d))
-						{
-							Program.MoveFile(d, destinationPath, name, fullName, false);
+					DateTime exifDate;
+					if (DateTime.TryParseExact(Path.GetFileNameWithoutExtension(name), "yyyy-MM-dd HH.mm.ss", null, DateTimeStyles.None, out exifDate)) {
+						Program.MoveFile(exifDate, destinationPath, name, fullName, true);
+					} else {
+						if (Program.TryExtractExifDateTaken(fullName, out exifDate)) {
+							Program.MoveFile(exifDate, destinationPath, name, fullName, false);
 						}
 					}
 				}
@@ -73,7 +64,8 @@ namespace ReorganizePhotoInDirectories
 			{
 				PropertyItem propertyItem = image.GetPropertyItem(306);
 				text = Encoding.UTF8.GetString(propertyItem.Value).Trim();
-				string str = text.Substring(text.IndexOf(" "), text.Length - text.IndexOf(" "));
+				const string space = " ";
+				string str = text.Substring(text.IndexOf(space, StringComparison.CurrentCulture), text.Length - text.IndexOf(space, StringComparison.CurrentCulture));
 				string text2 = text.Substring(0, 10);
 				text2 = text2.Replace(":", "-");
 				text = text2 + str;
