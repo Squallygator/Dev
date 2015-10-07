@@ -26,7 +26,7 @@ logistiqueModule.controller('logistiqueController', [ '$http', function ($http) 
           Stockage: 'Stockage',
           VilleStockage: 'VilleStockage',
           EtatTransport: '4',
-          VilleLivraison: [{ value: '1', text: '32108 - BAD SALZUFLEN', selected: true }]
+          VillesLivraison: [{ value: '1', text: '32108 - BAD SALZUFLEN', selected: true }]
       }
     ];
     $http.get('/Api/Ddl/EtatTransport.js').success(function(data){
@@ -45,18 +45,24 @@ logistiqueModule.controller('logistiqueController', [ '$http', function ($http) 
     logistique.EtatTransportChange = function (entiteId, vehiculeId) {
     	var detail = logistique.getDetailByVehiculeId(vehiculeId);
         if (detail) {
-            alert('EtatTransportChange changed for ' + detail.VehiculeId);
+            alert('EtatTransportChange changed for ' + entiteId + ',' + detail.VehiculeId);
 	        switch(detail.EtatTransport)
 	        {
 	        	case '1':
 	        	case '2':
-	        		detail.VilleLivraison = [];
+	        	default:
+	        		detail.VillesLivraison.length=0;
+	        		detail.VilleLivraison = null;
 	        		break;
 	        	case '3':
 	        	case '4':
-	        		debugger;
-	        		$http.get('/Api/Entite/'+ entiteId +'/VillesLivraison.js').success(function(data){
-				    	detail.VilleLivraison = data;
+	        		detail.VilleLivraison = null;
+        			debugger;
+	        		
+	        		var url = '/Api/Entite/'+ entiteId +'/VillesLivraison.js';
+	        		$http.get(url).success(function(data){
+	        			debugger;
+				    	detail.VillesLivraison = data;
 				    });
 				    break;
 	        }
