@@ -1,0 +1,22 @@
+﻿@using SurfCalendar.Models;
+
+@{
+    ViewBag.Title = "List";
+}
+@model List<Spot>
+<h1>Spots</h1>
+@if (Model != null)
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@Html.ActionLink(item.Name, "Index", "Spots", new { id = item.Id }, new { @class = "link" })</li>
+        }
+    </ul>
+}
+else
+{
+    <div>no spot !</div>
+}
+@Html.ActionLink("Create", "Create", "Spots", new { }, new { @class = "link" })
+

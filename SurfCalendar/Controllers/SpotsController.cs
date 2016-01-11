@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SurfCalendar.Business;
+using SurfCalendar.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,24 @@ namespace SurfCalendar.Controllers
 {
     public class SpotsController : Controller
     {
-        // GET: Spots
-        public ActionResult Index()
+        private readonly ISpotBusiness spotBusiness;
+
+        public SpotsController(ISpotBusiness spotBusiness)
         {
-            return View();
+            this.spotBusiness = spotBusiness;
+        }
+
+        // GET: Spots
+        public ActionResult Index(int id)
+        {
+            var model = spotBusiness.GetById(id);
+            return View(model);
+        }
+
+        public ViewResult List()
+        {
+            var model = spotBusiness.GetList();
+            return View(model);
         }
     }
 }

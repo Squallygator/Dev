@@ -1,8 +1,8 @@
-﻿
+﻿@using SurfCalendar.Models;
 @{
     Layout = null;
 }
-
+@model Spot
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +11,6 @@
     <title>Index</title>
 </head>
 <body>
-    <div> 
-    </div>
+    <h1>@Model.Id - @Model.Name</h1>
 </body>
 </html>

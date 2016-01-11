@@ -1,22 +1,11 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Home";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div>
-        <ul>
-            <li>@Html.ActionLink("Sessions","Index", "Sessions")</li>
-            <li>@Html.ActionLink("Quiver", "Index", "Quiver")</li>
-            <li>@Html.ActionLink("Spots", "Index", "Spots")</li>
-        </ul>
-    </div>
-</body>
-</html>
+<div>
+    <h1>Surf Calendar</h1>
+    <ul>
+        @*<li>@Html.ActionLink("Sessions","List", "Sessions")</li>
+            <li>@Html.ActionLink("Quiver", "List", "Quiver")</li>*@
+        <li>@Html.ActionLink("Spots", "List", "Spots")</li>
+    </ul>
+</div>

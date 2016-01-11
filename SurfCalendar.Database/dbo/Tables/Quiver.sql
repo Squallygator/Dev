@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Quiver]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)
