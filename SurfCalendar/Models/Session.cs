@@ -5,8 +5,9 @@ using System.Web;
 
 namespace SurfCalendar.Models
 {
-    public class Session: BaseModel
+    public class Session
     {
+        public int Id { get; set; }
         public DateTime Date { get; set; }
         public int SpotId { get; set; }
     }

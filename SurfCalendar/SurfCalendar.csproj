@@ -137,7 +137,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Spot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
