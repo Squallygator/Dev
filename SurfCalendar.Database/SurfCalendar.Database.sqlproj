@@ -61,11 +61,11 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Spot.sql" />
-    <Build Include="dbo\Tables\Quiver.sql" />
-    <Build Include="dbo\Tables\Session.sql" />
+    <None Include="SqlSchemaCompare1.scmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SqlSchemaCompare1.scmp" />
+    <Build Include="dbo\Tables\Spots.sql" />
+    <Build Include="dbo\Tables\Sessions.sql" />
+    <Build Include="dbo\Tables\__MigrationHistory.sql" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,21 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    const string ClassActive = "active";
+    var controller = ViewContext.RouteData.Values["controller"] as string ?? string.Empty;
+    var homeClass = "";
+    var spotsClass = "";
+    switch (controller.ToLowerInvariant())
+    {
+        case "home":
+            homeClass = ClassActive;
+            break;
+        case "spots":
+            spotsClass = ClassActive;
+            break;
+        default:
+            break;
+    }
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,10 +34,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Surf Calendar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li class="@(homeClass)">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "" })</li>
+                    <li class="@(spotsClass)">@Html.ActionLink("Spots", "List", "Spots", new { area = "" }, new { @class = "" })</li>
                 </ul>
             </div>
         </div>

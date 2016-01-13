@@ -7,5 +7,7 @@ namespace SurfCalendar.Models
 {
     public class Session: BaseModel
     {
+        public DateTime Date { get; set; }
+        public int SpotId { get; set; }
     }
 }
